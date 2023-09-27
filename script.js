@@ -20,7 +20,7 @@ $(document).ready(function() {
         // Загрузка нового изображения с использованием AJAX
         $.ajax({
             url: images[currentIndex].imageUrl,
-            method: "GET",
+            method: "POST",
             cache: false,
             success: function() {
                 $("#myImage").attr("src", images[currentIndex].imageUrl); // Смена изображения
@@ -37,9 +37,10 @@ $(document).ready(function() {
         var pictureId = $("#pictureId").val();
 
         $.ajax({
-            url: "getDataAjax.php?pictureId=" + pictureId,
-            method: "GET",
+            url: "getDataAjax.php",
+            method: "POST",
             dataType: "json",
+            data: {pictureId: pictureId},
             success: function(data) {
                 if (data.exists) {
                     changeImageAndText(data.imageUrl,  data.caption);

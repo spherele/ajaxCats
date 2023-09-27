@@ -1,5 +1,5 @@
 <?php
-    $pictureId = $_GET['pictureId'];
+    $pictureId = $_POST['pictureId'];
     $imagesFolder = '/images/';
     $imagesPath = $imagesFolder . $pictureId . '.jpg';
 
